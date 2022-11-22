@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from taggit_serializer.serializers import TaggitSerializer
+from taggit_serializer.serializers import TaggitSerializer,TagListSerializerField
 from mainapp.models import *
 import six
 import json
 
-class TagsSerializerField(serializers.CharField):
-    child = serializers.CharField()
+# class TagsSerializerField(serializers.CharField):
+#     child = serializers.CharField()
 
-    def to_representation(self, data):
-        return data.replace(","," ").split(" ")
+#     def to_representation(self, data):
+#         return data.replace(","," ").split(" ")
 
-class ToDoListSerializers(TaggitSerializer, serializers.ModelSerializer):
-    tags = TagsSerializerField(required=False)
+class ToDoListSerializers(serializers.ModelSerializer):
+    tags = TagListSerializerField()
     
     class Meta:
         model = ToDoList
