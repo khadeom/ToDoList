@@ -39,7 +39,7 @@ data = {
 </pre><br/>
 <b>After logging in you can use below ENDPOINTS </b>
 <br/><br/>
-Make a Get Request 
+Make a Get Request To
 <h4>View all Todo's</h4><br/>
 ENDPOINT - <a href="http://localhost:8000/api/main/">http://localhost:8000/api/main/</a><br/>
 <br/><br/>
