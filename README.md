@@ -47,25 +47,15 @@ ENDPOINT - <a href="http://localhost:8000/api/main/">http://localhost:8000/api/m
 Make a POST request to the ENDPOINT <br/>
 <b>To add task </b><br/>
 ENDPOINT - <a href="http://localhost:8000/api/main/create/}">http://localhost:8000/api/data/create/</a><br/>
-
-
-<br/><br/>
+it has been taken care that due date is greater than time stamp
+<br/>
 <b>To edit a task </b><br/>
 ENDPOINT - <a href="http://localhost:8000/api/main/create/{id}/">http://localhost:8000/api/main/create/{id}/</a><br/>
 <br/>
 Replace {id} with respective task to edit<br/>
-<br/><br/>
+<br/>
 <h4>To Delete a Task</h4>
 ENDPOINT - <a href="http://localhost:8000/api/main/delete/{id}">http://localhost:8000/api/main/delete/{id}</a><br/>
 
 Replace {id} with respective id of task to delete.<br/>
-It has been keeping in mind to show the Email if Requested User has logged in user's phone number as a contact<br/>
-<br/>
-<b>To mark spam </b>
-Make a POST request to the ENDPOINT
-<br/><br/>
-<h4>Detail View of Contacts</h4><br/>
-ENDPOINT - <a href="http://localhost:8000/api/data/p/{user_id}/">http://localhost:8000/api/data/p/{user_id}/</a>
-<br/>
-Replace {user_id} with respective id of user to display.<br/>
-<br/>
+
