@@ -136,4 +136,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> df444507c2f0bacfbd53e77709fb6dd5d3b6e5ac
