@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-jf-!ov4dl1&qy@3veqr2p=584%lt2ioc+s+m^rhox^obgappck
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["khadeom.pythonanywhere.com"]
+ALLOWED_HOSTS = ["khadeom.pythonanywhere.com","127.0.0.1","localhost"]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "taggit_serializer",
     # apps
     "mainapp",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
 
