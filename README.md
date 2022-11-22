@@ -13,6 +13,7 @@ Enter following commands once you are in this directory<br/>
     change line 6 to from "django.utils.translation import gettext_lazy as _"
 
     python manage.py runserver
+    python manage.py createsuperuser
 </pre>
 Now the application server has started,<br/><br/>
 
