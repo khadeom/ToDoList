@@ -43,8 +43,8 @@ Make a Get Request To
 <h4>View all Todo's</h4><br/>
 ENDPOINT - <a href="http://localhost:8000/api/main/">http://localhost:8000/api/main/</a><br/>
 <br/><br/>
-Make a POST request to the ENDPOINT
-<b>To add task </b><br/>
+Make a POST request to the ENDPOINT <br/>
+<b>To add task </b>
 ENDPOINT - <a href="http://localhost:8000/api/main/create/}">http://localhost:8000/api/data/create/</a><br/>
 
 
