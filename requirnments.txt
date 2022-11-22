@@ -1,7 +1,6 @@
 djangorestframework-jwt
 django>=4.0.0,<4.1.0
 djangorestframework
-# djangorestframework
 pyyaml
 requests
 django-taggit==3.1.0
