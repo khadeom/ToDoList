@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "taggit_serializer",
     # apps
     "mainapp",
+    "users",
 ]
 
 MIDDLEWARE = [
