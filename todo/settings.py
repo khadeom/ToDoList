@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-jf-!ov4dl1&qy@3veqr2p=584%lt2ioc+s+m^rhox^obgappck
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["khadeom.pythonanywhere.com"]
 
 
 # Application definition
@@ -123,7 +123,17 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATIC_ROOT = "/home/khadeom/ToDoList/static"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
