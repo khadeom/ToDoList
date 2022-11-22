@@ -1,3 +1,4 @@
+# ToDoList
 This is a brief description of what this app does and how these apis work <br/>
 As specified, this is a ToDoList REST API<br/>
 
@@ -12,6 +13,7 @@ Enter following commands once you are in this directory<br/>
     change line 6 to from "django.utils.translation import gettext_lazy as _"
 
     python manage.py runserver
+    python manage.py createsuperuser
 </pre>
 Now the application server has started,<br/><br/>
 
@@ -38,14 +40,14 @@ data = {
 </pre><br/>
 <b>After logging in you can use below ENDPOINTS </b>
 <br/><br/>
-Make a Get Request 
+Make a Get Request To
 <h4>View all Todo's</h4><br/>
 ENDPOINT - <a href="http://localhost:8000/api/main/">http://localhost:8000/api/main/</a><br/>
 <br/><br/>
-Make a POST request to the ENDPOINT
+Make a POST request to the ENDPOINT <br/>
 <b>To add task </b><br/>
 ENDPOINT - <a href="http://localhost:8000/api/main/create/}">http://localhost:8000/api/data/create/</a><br/>
-
+it has been taken care that due date is greater than time stamp
 
 <br/><br/>
 <b>To edit a task </b><br/>
@@ -57,13 +59,4 @@ Replace {id} with respective task to edit<br/>
 ENDPOINT - <a href="http://localhost:8000/api/main/delete/{id}">http://localhost:8000/api/main/delete/{id}</a><br/>
 
 Replace {id} with respective id of task to delete.<br/>
-It has been keeping in mind to show the Email if Requested User has logged in user's phone number as a contact<br/>
-<br/>
-<b>To mark spam </b>
-Make a POST request to the ENDPOINT
-<br/><br/>
-<h4>Detail View of Contacts</h4><br/>
-ENDPOINT - <a href="http://localhost:8000/api/data/p/{user_id}/">http://localhost:8000/api/data/p/{user_id}/</a>
-<br/>
-Replace {user_id} with respective id of user to display.<br/>
-<br/>
+

@@ -7,14 +7,13 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 # relative imports
-from .serializers import UserSerializer, LoginSerializers
+from .serializers import UserSerializer
 from .permissions import AnonPermissionOnly
 
 User=get_user_model()
 
 
 class AuthView(APIView):
-    # serializer_class    =  LoginSerializers
     permission_classes = [permissions.AllowAny]
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
