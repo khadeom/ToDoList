@@ -5,6 +5,7 @@ import six
 import json
 
 
+
 class TagsSerializerField(serializers.ListField):
     child = serializers.CharField()
 
