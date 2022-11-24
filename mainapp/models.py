@@ -22,7 +22,7 @@ class ToDoList(models.Model):
 
     def set_tags(self, x):
         print(x)
-        self.tags = json.dumps(set((map(lambda a:a.strip(), x.split(",")))))
+        self.tags = json.dumps(list(set((map(lambda a:a.strip(), x.split(","))))))
 
         
 
