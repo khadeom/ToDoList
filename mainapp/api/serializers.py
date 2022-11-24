@@ -17,7 +17,7 @@ class TaskSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'timestamp')
 
     def create(self, validated_data):
-        tags_data = validated_data.pop('tags', [])
+        tags_data = validated_data.pop('tags')
         print("tah",tags_data)
         instance = ToDoList.objects.create(**validated_data)
         instance.tags = json.dumps(list(set((map(lambda a:a.strip(), tags_data.split(","))))))
