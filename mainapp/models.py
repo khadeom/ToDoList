@@ -5,9 +5,9 @@ import uuid
 class ToDoList(models.Model):
 
     status_choices = [
-            ("O", "OPEN"), 
-            ("W", "WORKING"), 
-            ("D", "DONE"), 
+            ("O", "OPEN"),
+            ("W", "WORKING"),
+            ("D", "DONE"),
             ("v", "OVERDUE")
     ]
 
@@ -17,14 +17,14 @@ class ToDoList(models.Model):
     due_date = models.DateField(blank=True)
     tags = models.CharField(max_length=1000,blank=True)
     status = models.CharField(max_length=2, default="O", choices=status_choices)
-    
-    
+
+
 
     def set_tags(self, x):
-        print(x)
+        print("xis here",x)
         self.tags = json.dumps(set((map(lambda a:a.strip(), x.split(",")))))
 
-        
+
 
     def get_tags(self):
         return json.loads(self.tags)
