@@ -1,5 +1,4 @@
 from django.db import models
-from taggit.managers import TaggableManager
 import uuid
 
 class ToDoList(models.Model):
