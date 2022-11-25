@@ -8,9 +8,6 @@ Enter following commands once you are in this directory<br/>
     source venv/bin/activate
     pip install -r requirements.txt
 
-    in "/TODO/env/lib/python3.8/site-packages/taggit_serializer/serializers.py"
-    change line 6 to from "django.utils.translation import gettext_lazy as _"
-
     python manage.py runserver
 </pre>
 Now the application server has started,<br/><br/>
@@ -44,6 +41,9 @@ ENDPOINT - <a href="https://khadeom.pythonanywhere.com/api/main/">https://khadeo
 <br/><br/>
 Make a POST request to the ENDPOINT
 <b>To add task </b><br/>
+
+<b>Note: tags needs to be in cooma seperated format</b>
+
 ENDPOINT - <a href="https://khadeom.pythonanywhere.com/api/main/create/}">https://khadeom.pythonanywhere.com/api/data/create/</a><br/>
 
 
@@ -51,6 +51,7 @@ ENDPOINT - <a href="https://khadeom.pythonanywhere.com/api/main/create/}">https:
 <br/><br/>
 <b>To edit a task </b><br/>
 
+<b>Note: in edit tags needs to be in list format</b>
 ENDPOINT - <a href="https://khadeom.pythonanywhere.com/api/main/{id}/">https://khadeom.pythonanywhere.com/api/main/create/{id}/</a><br/>
 
 <br/>
