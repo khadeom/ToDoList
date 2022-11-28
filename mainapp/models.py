@@ -23,7 +23,7 @@ class ToDoList(models.Model):
     title = models.CharField(max_length=100, blank=False)
     description = models.TextField(max_length=1000, blank=False)
     due_date = models.DateField(blank=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
     status = models.CharField(max_length=2, default="O", choices=status_choices)
 
 
