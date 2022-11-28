@@ -32,6 +32,19 @@ class TaskSerializer(serializers.ModelSerializer):
         instance.tags = json.dumps(list(set(json.loads(tag_names))))
         instance.save()
         return instance
+    
+    # def validate_tags(self, value):
+    #     try:
+    #         # tags are in list format
+    #         a=json.loads(value)
+    #         a=list(set(a))
+    #         return json.dumps(a)
+    #     except:
+    #         # tags are coma seprated string
+
+    #         return json.dumps(list(set((map(lambda a:a.strip(), value.split(","))))))
+            
+
 
     def validate_due_date(self, value):
         if (timezone.now().date() > value):

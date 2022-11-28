@@ -1,5 +1,7 @@
 from django.db import models
 import uuid
+from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 class ToDoList(models.Model):
 
@@ -24,6 +26,9 @@ class ToDoList(models.Model):
         self.tags = json.dumps(list(set((map(lambda a:a.strip(), x.split(","))))))
 
 
+    def clean(self):
+        if self.due_date<timezone.now().date():
+             raise ValidationError("Due Date can't be in the Past")
 
 
     def get_tags(self):
