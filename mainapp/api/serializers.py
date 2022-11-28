@@ -4,11 +4,12 @@ from mainapp.models import *
 from django.utils import timezone
 import json
 
-#
-
-
-
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = "__all__"
 class TaskSerializer(serializers.ModelSerializer):
+    tags = TagSerializer(many=True)
     class Meta:
         lookup_field = 'id'
         model = ToDoList
@@ -16,35 +17,20 @@ class TaskSerializer(serializers.ModelSerializer):
                     "tags", "status","timestamp")
         read_only_fields = ('id', 'timestamp')
 
+
     def create(self, validated_data):
-        tags_data = validated_data.pop('tags')
-        print("tah",tags_data)
-        instance = ToDoList.objects.create(**validated_data)
-        instance.tags = json.dumps(list(set((map(lambda a:a.strip(), tags_data.split(","))))))
-        instance.save()
+        tags = validated_data.pop('tags')
+        print(tags)
+        task = ToDoList.objects.create(**validated_data)
 
-        return instance
+        for tag in tags:
+            print(tag)
+            if Tag.objects.filter(name = tag):
+                pass
+            else:
+                Tag.objects.create(todolist=task, **tag)
 
-    def update(self, instance, validated_data):
-        tag_names = validated_data.pop('tags')
-        instance = super().update(instance, validated_data)
-
-        instance.tags = json.dumps(list(set(json.loads(tag_names))))
-        instance.save()
-        return instance
-    
-    # def validate_tags(self, value):
-    #     try:
-    #         # tags are in list format
-    #         a=json.loads(value)
-    #         a=list(set(a))
-    #         return json.dumps(a)
-    #     except:
-    #         # tags are coma seprated string
-
-    #         return json.dumps(list(set((map(lambda a:a.strip(), value.split(","))))))
-            
-
+        return task
 
     def validate_due_date(self, value):
         if (timezone.now().date() > value):
