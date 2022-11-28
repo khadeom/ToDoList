@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ToDoList
+from .models import ToDoList, Tag
 
 @admin.action(description='Mark selected task as done')
 def mark_done(modeladmin, request, queryset):
@@ -12,7 +12,6 @@ class ToDoListAdmin(admin.ModelAdmin):
         "title",
         "description",
         "due_date",
-        "tags",
         "status"
     ]
 
@@ -22,4 +21,6 @@ class ToDoListAdmin(admin.ModelAdmin):
     search_fields = ('title',)
 
 admin.site.register(ToDoList, ToDoListAdmin)
+admin.site.register(Tag)
+
 
