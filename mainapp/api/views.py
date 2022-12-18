@@ -19,6 +19,13 @@ class Detailview(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = TaskSerializer
 
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    # def update(self, request, *args, **kwargs):
+    #     request.data.update({'voucherrows': json.loads(request.data.pop('voucherrows', None))})
+    #     return super().update(request, *args, **kwargs)
+
 # Create Task
 class Createview(generics.CreateAPIView):
     queryset = ToDoList.objects.all()

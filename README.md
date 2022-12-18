@@ -1,4 +1,4 @@
-# ToDoList
+# ToDoList API
 This is a brief description of what this app does and how these apis work <br/>
 As specified, this is a ToDoList REST API<br/>
 
