@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # apps
     "mainapp",
     "users",
+    "watch"
 ]
 
 MIDDLEWARE = [
