@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from .views import *
-
+from django.views.decorators.csrf import csrf_exempt
 urlpatterns = [
     path("<int:pk>/", Detailview.as_view()),
     path("", ListToDo.as_view()),

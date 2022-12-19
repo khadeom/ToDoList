@@ -17,7 +17,7 @@ class TagSerializer(serializers.ModelSerializer):
 
 class TaskSerializer(serializers.ModelSerializer):
     # tags = serializers.SlugRelatedField(many=True, slug_field='name', read_only=True)
-    
+
 
     tags = serializers.SlugRelatedField(
             many=True,
@@ -37,12 +37,13 @@ class TaskSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         print("incomming data",validated_data)
+        tag_names = [];tags=[]
         if "update_tags" in validated_data:
             tag_names = validated_data.pop('update_tags')
-        if "update_tags" in validated_data:
+        if "tags" in validated_data:
             tags = validated_data.pop("tags")
         instance = super().create(validated_data)
-        
+
         for name in tag_names:
             tag, created = Tag.objects.get_or_create(name=name)
             tags.append(tag)
@@ -54,7 +55,7 @@ class TaskSerializer(serializers.ModelSerializer):
         tag_names=[]
         if "update_tags" in validated_data:
             tag_names = validated_data.pop('update_tags')
-        
+
         instance = super().update(instance, validated_data)
         user = self.context['request'].user
         tags = validated_data['tags']

@@ -2,7 +2,7 @@ from rest_framework import generics, permissions
 from .serializers import *
 from mainapp.models import ToDoList
 from rest_framework.response import Response
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication,TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 # list all tasks
@@ -15,8 +15,8 @@ class ListToDo(generics.ListAPIView):
 # PUT
 class Detailview(generics.RetrieveUpdateAPIView):
     queryset = ToDoList.objects.all()
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication,BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
     serializer_class = TaskSerializer
 
     def put(self, request, *args, **kwargs):
@@ -29,14 +29,14 @@ class Detailview(generics.RetrieveUpdateAPIView):
 # Create Task
 class Createview(generics.CreateAPIView):
     queryset = ToDoList.objects.all()
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
     serializer_class = TaskSerializer
 
 
 # Delete task
 class Deleteview(generics.DestroyAPIView):
     queryset = ToDoList.objects.all()
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
     serializer_class = TaskSerializer
